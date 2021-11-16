@@ -43,7 +43,7 @@ const AddComment =(props)=> {
                 body: JSON.stringify(comment),
                 headers: {
                     'Content-type': 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI3OWY5NTgxNmI1YjAwMTU5NDA3NDAiLCJpYXQiOjE2MjI2NDY2NzcsImV4cCI6MTYyMzg1NjI3N30.y-rBwB5WAQOWBvWrLlAgTQUrbGulxd2M6cWH3VLyGLw'
+                    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzcwNzk1ODksImV4cCI6MTYzODI4OTE4OX0.oi-IXv2Px2DDDzbxqefkN2tLjQnIIROsrIClyszMeRk"
                 }
             })
             if (response.ok) {
