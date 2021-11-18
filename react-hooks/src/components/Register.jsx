@@ -34,7 +34,7 @@ render(){
             <Form >
               <Form.Group>
               <Form.Label className="font-weight-bold">Name:</Form.Label>
-              <Form.Control type="text" pattern=".{2,}"   required title="2 characters minimum" required placeholder="Enter your name"/>
+              <Form.Control type="text" pattern=".{2,}"   required title="2 characters minimum"  placeholder="Enter your name"/>
               </Form.Group>
               <Form.Group>
               <Form.Label className="font-weight-bold">Surname:</Form.Label>
