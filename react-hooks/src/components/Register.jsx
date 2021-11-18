@@ -1,20 +1,31 @@
-import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import {Container, Row, Col, Form, Button, Spinner} from 'react-bootstrap'
 import {Component} from 'react'
 class Register extends Component {
   state = {
-    name: null,
-    surname: null,
-    email:null,
-    password: null,
-    inputError: {
-      name: '',
-      surname: '',
-      email: '',
-      password: ''
-    }
+    loading: false
   }
 
+
+   fetchLoading =()=> {
+     this.setState({loading:true})
+    setTimeout(()=>{
+      this.setState({loading:false})
+    }, 300)
+  }
+  // state = {
+  //   name: null,
+  //   surname: null,
+  //   email:null,
+  //   password: null,
+  //   inputError: {
+  //     name: '',
+  //     surname: '',
+  //     email: '',
+  //     password: ''
+  //   }
+  // }
 render(){
+  const {loading} = this.state
   return(
       <Container>
         <Row className="justify-content-center form-register mt-5">
@@ -44,7 +55,10 @@ render(){
                 <Form.Label className="font-weight-bold">Repeat Password:</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-              <Button variant="success" type="submit">
+              <Button variant="success"  onClick={this.fetchLoading} disabled={loading}>
+              {
+                loading && <Spinner animation="grow" variant="danger" />
+              }
                 Sign Up
               </Button>
             </Form>
@@ -54,4 +68,5 @@ render(){
     )
   }
 }
+
 export default Register
