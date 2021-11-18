@@ -13,9 +13,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <MyNavbar />
-        <WarningSign text="Watch out again!" />
+    <MyNavbar />
+      <div className="App-header">
+      <WarningSign text="Watch out again!" />
         <MyBadge  adge text="NEW!!" color="info" />
           <Routes>
             <Route path="/register" element={<Register />} />
