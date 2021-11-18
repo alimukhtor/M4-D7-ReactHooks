@@ -31,7 +31,7 @@ render(){
         <Row className="justify-content-center form-register mt-5">
           <Col xs={12} md={6}>
             <h1 className="text-center">Register here !</h1>
-            <Form>
+            <Form >
               <Form.Group>
               <Form.Label className="font-weight-bold">Name:</Form.Label>
               <Form.Control type="text" pattern=".{2,}"   required title="2 characters minimum" required placeholder="Enter your name"/>
@@ -49,13 +49,13 @@ render(){
               </Form.Group>
               <Form.Group>
                 <Form.Label className="font-weight-bold">Password:</Form.Label>
-                  <Form.Control type="password" pattern=".{8,}"  required title="8 characters minimum" placeholder="Password" />
+                  <Form.Control type="password" pattern="[0-9]{1}, .{8,}"  required title="8 characters minimum" placeholder="Password" />
               </Form.Group>
               <Form.Group>
                 <Form.Label className="font-weight-bold">Repeat Password:</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
-              <Button variant="success"  onClick={this.fetchLoading} disabled={loading}>
+              <Button variant="success" type="submit" onClick={this.fetchLoading} disabled={loading}>
               {
                 loading && <Spinner animation="grow" variant="danger" />
               }

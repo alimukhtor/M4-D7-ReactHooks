@@ -5,7 +5,7 @@ const deleteComment = async (asin) => {
         let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + asin, {
             method: 'DELETE',
             headers: {
-                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzcwNzk1ODksImV4cCI6MTYzODI4OTE4OX0.oi-IXv2Px2DDDzbxqefkN2tLjQnIIROsrIClyszMeRk"
+                Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTgyODhmZWFhY2FhMjAwMTU1MmExNjEiLCJpYXQiOjE2MzcyNDk3NzYsImV4cCI6MTYzODQ1OTM3Nn0.0u9JU2qGXzfpqmLVtMxKIBNHqzSZiKzO8-fBwGACcMc"
             }
         })
         if (response.ok) {
