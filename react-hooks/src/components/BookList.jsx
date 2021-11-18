@@ -31,7 +31,7 @@ const BookList =(props)=> {
                         </Row>
                         <Row>
                             {
-                                props.books.filter(b => b.title.toLowerCase().includes(searchQuery)).map(b => (
+                                props.books.slice(0, 8).filter(b => b.title.toLowerCase().includes(searchQuery)).map(b => (
                                     <Col xs={3} key={b.asin} >
                                         <SingleBook
                                             book={b}
