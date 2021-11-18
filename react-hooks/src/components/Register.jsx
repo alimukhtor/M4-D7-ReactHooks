@@ -2,7 +2,6 @@ import {Container, Row, Col, Form, Button, Spinner} from 'react-bootstrap'
 import {Component} from 'react'
 class Register extends Component {
   state = {
-    loading: false,
     registration: {
       name: '',
       surname:'',
@@ -14,12 +13,6 @@ class Register extends Component {
   }
 
 
-   fetchLoading =()=> {
-     this.setState({loading:true})
-    setTimeout(()=>{
-      this.setState({loading:false})
-    }, 300)
-  }
 
   handleInput=(inputField, value)=> {
     this.setState({
@@ -31,24 +24,36 @@ class Register extends Component {
     })
 
   }
+
+  isClickedBtn =()=> {
+    let isItFilled = false;
+    if(this.state.registration.name.length >= 2 &&
+      this.state.registration.surname.length >= 3 &&
+      this.state.registration.password.match(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/) &&
+      this.state.registration.confirmPassword === this.state.registration.password
+
+      ){
+      isItFilled = true;
+    }
+  return isItFilled
+  }
 render(){
-  const {loading} = this.state
   return(
       <Container>
         <Row className="justify-content-center form-register mt-5">
           <Col xs={12} md={6}>
             <h1 className="text-center">Register here !</h1>
-            <Form >
+            <Form>
               <Form.Group>
               <Form.Label className="font-weight-bold">Name:</Form.Label>
-              <Form.Control type="text" placeholder="Enter your name"
+              <Form.Control type="text" required title="at least 2 chars" placeholder="Enter your name"
               value={this.state.registration.name}
               onChange={(e) => this.handleInput('name', e.target.value)}
               />
               </Form.Group>
               <Form.Group>
               <Form.Label className="font-weight-bold">Surname:</Form.Label>
-              <Form.Control type="text"  placeholder="Enter your surname"
+              <Form.Control type="text" required title="at least 3 chars" placeholder="Enter your surname"
               value={this.state.registration.surname}
               onChange={(e) => this.handleInput('surname', e.target.value)}
               />
@@ -65,7 +70,7 @@ render(){
               </Form.Group>
               <Form.Group>
                 <Form.Label className="font-weight-bold">Password:</Form.Label>
-                  <Form.Control type="password"  placeholder="Password"
+                  <Form.Control type="password"  required title="Should contain at least 8 chars, 1 digit, 1 letter" placeholder="Password"
                   value={this.state.registration.password}
                   onChange={(e) => this.handleInput('password', e.target.value)}
 
@@ -73,15 +78,13 @@ render(){
               </Form.Group>
               <Form.Group>
                 <Form.Label className="font-weight-bold">Repeat Password:</Form.Label>
-                <Form.Control type="password" placeholder="Password"
+                <Form.Control type="password" required title="Should match with your password" placeholder="Password"
                 value={this.state.registration.confirmPassword}
                 onChange={(e) => this.handleInput('confirmPassword', e.target.value)}
                 />
               </Form.Group>
-              <Button variant="success" type="submit" onClick={this.fetchLoading} disabled={loading}>
-              {
-                loading && <Spinner animation="grow" variant="danger" />
-              }
+              <Button variant="success" type="submit" disabled={!this.isClickedBtn()}>
+
                 Sign Up
               </Button>
             </Form>
