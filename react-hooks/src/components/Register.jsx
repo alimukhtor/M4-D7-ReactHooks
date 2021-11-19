@@ -52,7 +52,6 @@ render(){
 
       (this.state.errorInput) ?
       <h1>Registration completed!</h1> :
-
       (
         <>
         <Container>
